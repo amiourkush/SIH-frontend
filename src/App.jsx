@@ -7,6 +7,11 @@ import {
 import DashboardLayout from "./layouts/DashboardLayout";
 
 import Login from "./pages/Login";
+import EmailLogin from "./pages/auth/EmailLogin";
+import GoogleLogin from "./pages/auth/GoogleLogin";
+import IrctcLogin from "./pages/auth/IrctcLogin";
+import MeriPehchaanLogin from "./pages/auth/MeriPehchaanLogin";
+
 import Dashboard from "./pages/Dashboard";
 import LiveTrains from "./pages/LiveTrains";
 import TrainDetails from "./pages/TrainDetails";
@@ -20,8 +25,12 @@ export default function App() {
 
       <Routes>
 
-        {/* Public Login Route (Landing page) */}
+        {/* Public Login Routes */}
         <Route path="/" element={<Login />} />
+        <Route path="/login/email" element={<EmailLogin />} />
+        <Route path="/login/google" element={<GoogleLogin />} />
+        <Route path="/login/irctc" element={<IrctcLogin />} />
+        <Route path="/login/meripehchaan" element={<MeriPehchaanLogin />} />
 
         {/* Protected / Dashboard Application Area */}
         <Route element={<DashboardLayout />}>

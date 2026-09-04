@@ -15,7 +15,8 @@ import {
   ChevronDown,
   Sparkles,
   Cpu,
-  Clock
+  Clock,
+  Mail
 } from "lucide-react";
 
 export default function Login() {
@@ -235,32 +236,32 @@ export default function Login() {
 
             {/* SSO LOGIN OPTIONS */}
             <div className="mt-6 space-y-2.5">
-              {/* Primary SSO Button */}
+              {/* Primary Email Login Button */}
               <button
                 type="button"
-                onClick={handleAuthenticate}
-                className="w-full bg-[#061630] hover:bg-[#0b2247] text-white rounded-xl p-3 flex items-center justify-between transition-all duration-200 shadow-md group"
+                onClick={() => navigate("/login/email")}
+                className="w-full bg-[#061630] hover:bg-[#0b2247] text-white rounded-xl p-3 flex items-center justify-between transition-all duration-200 shadow-md group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-600/30 p-1.5 rounded-lg text-blue-300">
-                    <TrainFront className="h-4 w-4" />
+                    <Mail className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-bold tracking-wide">
-                    CRIS Rail-Net SSO
+                    Login with Email
                   </span>
                 </div>
                 <span className="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-0.5 rounded border border-slate-700">
-                  SmartCard / PKI Token
+                  Email & OTP
                 </span>
               </button>
 
               {/* 3 Secondary SSO Buttons Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {/* Google Workspace */}
+                {/* Google Login */}
                 <button
                   type="button"
-                  onClick={handleAuthenticate}
-                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition"
+                  onClick={() => navigate("/login/google")}
+                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition cursor-pointer"
                 >
                   <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
                     <path
@@ -280,14 +281,14 @@ export default function Login() {
                       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
                     />
                   </svg>
-                  <span>Google Workspace</span>
+                  <span>Google Login</span>
                 </button>
 
                 {/* IRCTC Enterprise */}
                 <button
                   type="button"
-                  onClick={handleAuthenticate}
-                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition"
+                  onClick={() => navigate("/login/irctc")}
+                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition cursor-pointer"
                 >
                   <div className="h-4 w-4 rounded bg-blue-900 text-white font-mono text-[9px] font-bold flex items-center justify-center">
                     IR
@@ -298,8 +299,8 @@ export default function Login() {
                 {/* MeriPehchaan */}
                 <button
                   type="button"
-                  onClick={handleAuthenticate}
-                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition"
+                  onClick={() => navigate("/login/meripehchaan")}
+                  className="bg-slate-100/90 hover:bg-slate-200/80 text-slate-700 font-semibold text-xs py-2.5 px-3 rounded-lg border border-slate-200 flex items-center justify-center gap-2 transition cursor-pointer"
                 >
                   <Cpu className="h-4 w-4 text-emerald-600 shrink-0" />
                   <span>MeriPehchaan</span>
