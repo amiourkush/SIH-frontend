@@ -6,6 +6,7 @@ import {
 
 import DashboardLayout from "./layouts/DashboardLayout";
 
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import LiveTrains from "./pages/LiveTrains";
 import TrainDetails from "./pages/TrainDetails";
@@ -19,45 +20,19 @@ export default function App() {
 
       <Routes>
 
-        <Route
-          element={
-            <DashboardLayout />
-          }
-        >
+        {/* Public Login Route (Landing page) */}
+        <Route path="/" element={<Login />} />
 
-          {/* Dashboard */}
+        {/* Protected / Dashboard Application Area */}
+        <Route element={<DashboardLayout />}>
 
-          <Route
-            path="/"
-            element={
-              <Dashboard />
-            }
-          />
+          <Route path="/dashboard" element={<Dashboard />} />
 
+          <Route path="/live-trains" element={<LiveTrains />} />
 
-          {/* Live trains */}
+          <Route path="/train-details" element={<TrainDetails />} />
 
-          <Route
-            path="/live-trains"
-            element={
-              <LiveTrains />
-            }
-          />
-
-
-          {/* Train details */}
-
-          <Route
-            path="/train-details"
-            element={
-              <TrainDetails />
-            }
-          />
-
-          <Route
-            path="/eta-predictions"
-            element={<ETAPredictions />}
-          />
+          <Route path="/eta-predictions" element={<ETAPredictions />} />
 
         </Route>
 
