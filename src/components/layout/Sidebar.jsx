@@ -9,14 +9,15 @@ import {
   Sparkles,
   Settings,
   TriangleAlert,
+  LogOut,
 } from "lucide-react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const menuItems = [
   {
     label: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: LayoutDashboard,
   },
   {
@@ -62,6 +63,8 @@ const menuItems = [
 ];
 
 export default function Sidebar() {
+  const navigate = useNavigate();
+
   return (
    <aside className="flex h-dvh min-h-0 w-full flex-col bg-[#061a3a] text-white">
 
@@ -102,7 +105,7 @@ export default function Sidebar() {
               <NavLink
                 key={item.label}
                 to={item.path}
-                end={item.path === "/"}
+                end={item.path === "/dashboard"}
                 className={({ isActive }) =>
                   `flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition ${
                     isActive
@@ -128,9 +131,9 @@ export default function Sidebar() {
       </nav>
 
 
-      {/* ================= EMERGENCY ================= */}
+      {/* ================= EMERGENCY & LOGOUT ================= */}
 
-      <div className="shrink-0 p-4">
+      <div className="shrink-0 p-4 space-y-2">
 
         <button
           type="button"
@@ -157,6 +160,36 @@ export default function Sidebar() {
           <TriangleAlert className="h-4 w-4 shrink-0" />
 
           <span>Emergency Protocol</span>
+
+        </button>
+
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="
+            flex
+            w-full
+            items-center
+            justify-center
+            gap-2
+            rounded-lg
+            bg-slate-800/80
+            border
+            border-slate-700
+            px-3
+            py-2.5
+            text-xs
+            font-semibold
+            text-slate-300
+            transition
+            hover:bg-slate-700
+            hover:text-white
+          "
+        >
+
+          <LogOut className="h-4 w-4 shrink-0 text-slate-400" />
+
+          <span>Sign Out</span>
 
         </button>
 

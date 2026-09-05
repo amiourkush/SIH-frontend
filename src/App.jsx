@@ -6,6 +6,12 @@ import {
 
 import DashboardLayout from "./layouts/DashboardLayout";
 
+import Login from "./pages/Login";
+import EmailLogin from "./pages/auth/EmailLogin";
+import GoogleLogin from "./pages/auth/GoogleLogin";
+import IrctcLogin from "./pages/auth/IrctcLogin";
+import MeriPehchaanLogin from "./pages/auth/MeriPehchaanLogin";
+
 import Dashboard from "./pages/Dashboard";
 import LiveTrains from "./pages/LiveTrains";
 import TrainDetails from "./pages/TrainDetails";
@@ -19,45 +25,23 @@ export default function App() {
 
       <Routes>
 
-        <Route
-          element={
-            <DashboardLayout />
-          }
-        >
+        {/* Public Login Routes */}
+        <Route path="/" element={<Login />} />
+        <Route path="/login/email" element={<EmailLogin />} />
+        <Route path="/login/google" element={<GoogleLogin />} />
+        <Route path="/login/irctc" element={<IrctcLogin />} />
+        <Route path="/login/meripehchaan" element={<MeriPehchaanLogin />} />
 
-          {/* Dashboard */}
+        {/* Protected / Dashboard Application Area */}
+        <Route element={<DashboardLayout />}>
 
-          <Route
-            path="/"
-            element={
-              <Dashboard />
-            }
-          />
+          <Route path="/dashboard" element={<Dashboard />} />
 
+          <Route path="/live-trains" element={<LiveTrains />} />
 
-          {/* Live trains */}
+          <Route path="/train-details" element={<TrainDetails />} />
 
-          <Route
-            path="/live-trains"
-            element={
-              <LiveTrains />
-            }
-          />
-
-
-          {/* Train details */}
-
-          <Route
-            path="/train-details"
-            element={
-              <TrainDetails />
-            }
-          />
-
-          <Route
-            path="/eta-predictions"
-            element={<ETAPredictions />}
-          />
+          <Route path="/eta-predictions" element={<ETAPredictions />} />
 
         </Route>
 
